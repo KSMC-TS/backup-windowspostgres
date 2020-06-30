@@ -22,16 +22,18 @@
     .\Backup-WindowsPostgres.ps1 -databases "postgres", "db1", "db2"
     .\Backup-WindowsPostgres.ps1 -databases "postgres", "db1", "db2" -retention 15 -postgresUser "postgresbackup" -postgresHost "localhost" -postgresPort "5433" -eventSource "BackupJob - Postgres Backup"
 .NOTES
-    Version:        0.1
+    Version:        0.2
     Last updated:   06/30/2020
     Creation date:  06/29/2020
     Author:         Zachary Choate
     URL:            https://raw.githubusercontent.com/KSMC-TS/backup-windowspostgres/master/backup-windowspostgres.ps1
 #>
 
+[CmdletBinding(PositionalBinding=$false)]
+
 param(
-    [Parameter(Mandatory=$true)]
-    [array]$databases,
+    [Parameter(Mandatory=$true,ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]
+    [string[]]$databases=@(),
     [Parameter(Mandatory=$false)]
     [ValidateNotNullOrEmpty()]
     [int]$retention = 14,
