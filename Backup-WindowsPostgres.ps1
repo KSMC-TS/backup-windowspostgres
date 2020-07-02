@@ -26,7 +26,7 @@
     Last updated:   06/30/2020
     Creation date:  06/29/2020
     Author:         Zachary Choate
-    URL:            https://raw.githubusercontent.com/KSMC-TS/backup-windowspostgres/master/backup-windowspostgres.ps1
+    URL:            https://raw.githubusercontent.com/KSMC-TS/backup-windowspostgres/main/backup-windowspostgres.ps1
 #>
 
 [CmdletBinding(PositionalBinding=$false)]
